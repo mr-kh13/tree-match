@@ -3,6 +3,7 @@ import styles from "./page.module.scss";
 import Answers from "@/modules/chatbot/components/Answers/Answers";
 import { beginTreeMatching } from "@/data/apis/beginTreeMatching";
 import { Messages } from "@/modules/chatbot/components/Messages";
+import { Container } from "@/shared/components/Container";
 
 export default async function Home() {
   const initialStep = await beginTreeMatching();
@@ -11,9 +12,13 @@ export default async function Home() {
     <>
       <Header />
       <main className={styles.main}>
-        <Messages initialStep={initialStep} />
+        <Container>
+          <Messages initialStep={initialStep} />
+        </Container>
       </main>
-      <Answers />
+      <Container>
+        <Answers />
+      </Container>
     </>
   );
 }

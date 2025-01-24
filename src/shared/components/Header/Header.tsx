@@ -1,9 +1,12 @@
+import { Container } from "../Container";
 import styles from "./Header.module.scss";
 
 export function Header() {
   return (
     <header className={styles.header}>
-      <h1 className={styles.title}>Tree Match</h1>
+      <Container>
+        <h1 className={styles.title}>Tree Match</h1>
+      </Container>
     </header>
   );
 }

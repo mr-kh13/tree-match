@@ -42,7 +42,7 @@ export default function Answers() {
 
   return (
     <div className={styles.container}>
-      <p className={styles.title}>Answer to Find Your Tree:</p>
+      <p className={styles.title}>Choose Your Answer, Discover Your Tree!</p>
       <div className={styles.answersWrapper}>
         {answers.map((answer) => {
           return (
