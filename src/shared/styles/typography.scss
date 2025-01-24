@@ -1,0 +1,161 @@
+@use "sass:map";
+@use "./spacing";
+
+$textXl: (
+  regular: (
+    font-size: spacing.pxToRem(20),
+    font-weight: 400,
+    line-height: spacing.pxToRem(30),
+    letter-spacing: 0em,
+  ),
+  medium: (
+    font-size: spacing.pxToRem(20),
+    font-weight: 500,
+    line-height: spacing.pxToRem(30),
+    letter-spacing: 0em,
+  ),
+  semibold: (
+    font-size: spacing.pxToRem(20),
+    font-weight: 600,
+    line-height: spacing.pxToRem(30),
+    letter-spacing: 0em,
+  ),
+  bold: (
+    font-size: spacing.pxToRem(20),
+    font-weight: 700,
+    line-height: spacing.pxToRem(30),
+    letter-spacing: 0em,
+  ),
+);
+
+$textLg: (
+  regular: (
+    font-size: spacing.pxToRem(18),
+    font-weight: 400,
+    line-height: spacing.pxToRem(28),
+    letter-spacing: 0em,
+  ),
+  medium: (
+    font-size: spacing.pxToRem(18),
+    font-weight: 500,
+    line-height: spacing.pxToRem(28),
+    letter-spacing: 0em,
+  ),
+  semibold: (
+    font-size: spacing.pxToRem(18),
+    font-weight: 600,
+    line-height: spacing.pxToRem(28),
+    letter-spacing: 0em,
+  ),
+  bold: (
+    font-size: spacing.pxToRem(18),
+    font-weight: 700,
+    line-height: spacing.pxToRem(28),
+    letter-spacing: 0em,
+  ),
+);
+
+$textMd: (
+  regular: (
+    font-size: spacing.pxToRem(16),
+    font-weight: 400,
+    line-height: spacing.pxToRem(24),
+    letter-spacing: 0em,
+  ),
+  medium: (
+    font-size: spacing.pxToRem(16),
+    font-weight: 500,
+    line-height: spacing.pxToRem(24),
+    letter-spacing: 0em,
+  ),
+  semibold: (
+    font-size: spacing.pxToRem(16),
+    font-weight: 600,
+    line-height: spacing.pxToRem(24),
+    letter-spacing: 0em,
+  ),
+  bold: (
+    font-size: spacing.pxToRem(16),
+    font-weight: 700,
+    line-height: spacing.pxToRem(24),
+    letter-spacing: 0em,
+  ),
+);
+
+$textSm: (
+  regular: (
+    font-size: spacing.pxToRem(14),
+    font-weight: 400,
+    line-height: spacing.pxToRem(20),
+    letter-spacing: 0em,
+  ),
+  medium: (
+    font-size: spacing.pxToRem(14),
+    font-weight: 500,
+    line-height: spacing.pxToRem(20),
+    letter-spacing: 0em,
+  ),
+  semibold: (
+    font-size: spacing.pxToRem(14),
+    font-weight: 600,
+    line-height: spacing.pxToRem(20),
+    letter-spacing: 0em,
+  ),
+  bold: (
+    font-size: spacing.pxToRem(14),
+    font-weight: 700,
+    line-height: spacing.pxToRem(20),
+    letter-spacing: 0em,
+  ),
+);
+
+$textXs: (
+  regular: (
+    font-size: spacing.pxToRem(12),
+    font-weight: 400,
+    line-height: spacing.pxToRem(18),
+    letter-spacing: 0em,
+  ),
+  medium: (
+    font-size: spacing.pxToRem(12),
+    font-weight: 500,
+    line-height: spacing.pxToRem(18),
+    letter-spacing: 0em,
+  ),
+  semibold: (
+    font-size: spacing.pxToRem(12),
+    font-weight: 600,
+    line-height: spacing.pxToRem(18),
+    letter-spacing: 0em,
+  ),
+  bold: (
+    font-size: spacing.pxToRem(12),
+    font-weight: 700,
+    line-height: spacing.pxToRem(18),
+    letter-spacing: 0em,
+  ),
+);
+
+$textStyles: (
+  xl: $textXl,
+  lg: $textLg,
+  md: $textMd,
+  sm: $textSm,
+  xs: $textXs,
+);
+
+@mixin text($type, $size) {
+  @if map-has-key($textStyles, $size) {
+    $sizeMap: map-get($textStyles, $size);
+
+    @if map-has-key($sizeMap, $type) {
+      @each $property, $value in map-get($sizeMap, $type) {
+        #{$property}: $value;
+      }
+    } @else {
+      @error "Invalid type: #{$type} for size #{$size}";
+    }
+  } @else {
+    @error "Invalid size: #{$size}";
+  }
+}

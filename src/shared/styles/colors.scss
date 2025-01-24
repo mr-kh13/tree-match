@@ -1,0 +1,100 @@
+$gray: (
+  25: #fcfcfd,
+  50: #f9fafb,
+  100: #f2f4f7,
+  200: #eaecf0,
+  300: #d0d5dd,
+  400: #98a2b3,
+  500: #667085,
+  600: #475467,
+  700: #344054,
+  800: #182230,
+  900: #101828,
+  950: #0c111d,
+);
+
+$brand: (
+  25: #ebf0fe,
+  50: #d6e2fd,
+  100: #c2d3fd,
+  200: #adc5fc,
+  300: #84a7fa,
+  400: #5b8af9,
+  500: #326df7,
+  600: #2857c6,
+  700: #1e4195,
+  800: #142c63,
+  900: #0f214b,
+  950: #0a1632,
+);
+
+$error: (
+  25: #f7e6e5,
+  50: #efd0cf,
+  100: #e8bbb9,
+  200: #e0a6a3,
+  300: #d17b76,
+  400: #c2514a,
+  500: #b3261e,
+  600: #b3261e,
+  700: #6b1712,
+  800: #480f0c,
+  900: #360b09,
+  950: #120403,
+);
+
+$warning: (
+  25: #fff5e6,
+  50: #ffeacc,
+  100: #ffe0b3,
+  200: #ffd699,
+  300: #ffc166,
+  400: #ffad33,
+  500: #ff9800,
+  600: #cc7a00,
+  700: #995b00,
+  800: #663d00,
+  900: #4d2e00,
+  950: #331e00,
+);
+
+$success: (
+  25: #ebf8f2,
+  50: #d8f1e5,
+  100: #c4e9d7,
+  200: #a9efc5,
+  300: #89d4b0,
+  400: #62c595,
+  500: #3bb77b,
+  600: #2f9262,
+  700: #236e4a,
+  800: #184931,
+  900: #123725,
+  950: #0c2519,
+);
+
+$colors: (
+  gray: $gray,
+  brand: $brand,
+  error: $error,
+  warning: $warning,
+  success: $success,
+);
+
+@function color($colorType, $shade) {
+  $colorMap: map-get($colors, $colorType);
+
+  @if not $colorMap {
+    @error "Invalid color list: #{$colorType}. Color list not found in the color map.";
+    @return null;
+  }
+
+  $color: map-get($colorMap, $shade);
+
+  @if not $color {
+    @error "Invalid shade: #{$shade}. Shade not found in the color map.";
+    @return null;
+  }
+
+  @return $color;
+}
