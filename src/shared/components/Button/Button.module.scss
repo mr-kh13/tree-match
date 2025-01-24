@@ -1,0 +1,50 @@
+@use "@/shared/styles/colors.scss";
+@use "@/shared/styles/spacing.scss";
+@use "@/shared/styles/typography.scss";
+
+.button {
+  outline: none;
+
+  &.default {
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+  }
+
+  // colors
+  &.secondary {
+    background-color: #fff;
+    border-color: colors.color(brand, 500);
+    color: colors.color(brand, 500);
+
+    &:not(:disabled) {
+      &:hover {
+        color: colors.color(brand, 600);
+        border-color: colors.color(brand, 600);
+      }
+
+      &:focus {
+        border-color: colors.color(brand, 600);
+      }
+    }
+  }
+
+  // sizes
+  &.md {
+    padding: spacing.pxToRem(8);
+    border-radius: spacing.pxToRem(8);
+    @include typography.text(semibold, md);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #eee;
+    border-color: #eee;
+    color: rgba(0, 0, 0, 0.4);
+    opacity: 0.8;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+}

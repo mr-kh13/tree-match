@@ -1,0 +1,17 @@
+@use "@/shared/styles/colors.scss";
+@use "@/shared/styles/typography.scss";
+@use "@/shared/styles/spacing.scss";
+
+.header {
+  width: 100%;
+  background-color: colors.color(brand, 500);
+  padding: spacing.pxToRem(16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .title {
+    color: #fff;
+    @include typography.text(bold, xl);
+  }
+}
