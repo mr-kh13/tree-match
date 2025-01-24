@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Project README
+
+## Table of Contents
+
+1. [Getting Started](#getting-started)
+2. [Thought Process and Architectural Decisions](#thought-process-and-architectural-decisions)
+3. [Folder Structure](#folder-structure)
+4. [Trade-Offs and Assumptions](#trade-offs-and-assumptions)
+5. [Testing](#testing)
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the application:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Install Dependencies:**
+   This project uses `npm` as the package manager. Install dependencies by running:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```bash
+   npm install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Run the Development Server:**
+   Start the application in development mode:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   npm run dev
+   ```
 
-## Learn More
+   Open [http://localhost:3000](http://localhost:3000) to view the application in the browser.
 
-To learn more about Next.js, take a look at the following resources:
+3. **Build for Production:**
+   To create an optimized production build:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```bash
+   npm run build
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   To preview the production build:
 
-## Deploy on Vercel
+   ```bash
+   npm run start
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   This will serve the production build on [http://localhost:3000](http://localhost:3000).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Thought Process and Architectural Decisions
+
+The application is designed to be scalable and maintainable. The folder structure is as follows:
+
+### **Folder Structure:**
+
+- **data:** Handles the data layer, including API calls and data types.
+- **modules:** Contains application modules organized by domain, ensuring clear separation of concerns.
+- **shared:** Holds shared resources like atomic components, hooks, utilities, etc.
+- **store:** Contains the core Redux store configuration, root reducer, and essential logic for managing the application’s global state. This includes any middleware, utility functions, and other critical components that ensure predictable state updates and data flow throughout the application.
+
+This organization ensures that the application is easy to scale as features grow and simplifies team collaboration.
+
+---
+
+## Trade-Offs and Assumptions
+
+### **Styling:**
+
+- **Current Implementation:**
+  SCSS is used to demonstrate CSS and SCSS skills.
+- **Recommendation:**
+  Tailwind could be a leaner alternative, offering faster UI development and smaller bundle sizes if configured correctly.
+
+### **Redux:**
+
+- **Current Implementation:**
+  A Redux store manages global state to showcase Redux expertise.
+- **Recommendation:**
+  For a small project, `React Context` and `useReducer` might suffice, reducing overhead.
+
+### **API Client:**
+
+- **Current Implementation:**
+  The native `fetch` API is used for network requests.
+- **Reasoning:**
+  It’s lightweight and avoids increasing the bundle size. For more advanced features, `axios` or similar libraries could be used in the future.
+
+---
+
+### **Testing:**
+
+- **Current Implementation:**
+  No tests have been added yet to save time.
+- **Recommendation:**
+  Write unit tests for critical logic (e.g., useSubmitAnswer and chatbotSlice). Consider adding end-to-end tests with Cypress for a comprehensive testing strategy.
+- **Future Command:**
+  \
+   Once tests are added, run them with:
+  ```bash
+  npm run test
+  ```
