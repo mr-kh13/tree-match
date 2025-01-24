@@ -1,11 +1,13 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addStep, selectMatch, selectSteps } from "../../chatbotSlice";
 import { FirstStepResult } from "@/data/apis/beginTreeMatching";
 import { MessageBubble } from "../MessageBubble";
 import styles from "./Messages.module.scss";
 import dynamic from "next/dynamic";
+import { useScrollToLastMessageListener } from "../../hooks/useScrollToLastMessageListener";
+import { useChatbotInitializerListener } from "../../hooks/useChatbotInitializerListener";
 
 const MatchMessage = dynamic(() =>
   import("../MatchMessage").then((res) => res.MatchMessage)
@@ -16,16 +18,15 @@ interface Props {
 }
 
 export function Messages({ initialStep }: Props) {
-  const dispatch = useDispatch();
   const steps = useSelector(selectSteps);
   const match = useSelector(selectMatch);
+  const stepsEndRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    dispatch(addStep(initialStep.question));
-  }, []);
+  useChatbotInitializerListener(initialStep);
+  useScrollToLastMessageListener();
 
   return (
-    <div className={styles.questionsWrapper}>
+    <div className={styles.stepsWrapper}>
       {steps.map((step) => {
         return (
           <>
@@ -41,6 +42,7 @@ export function Messages({ initialStep }: Props) {
         );
       })}
       {match && <MatchMessage match={match} />}
+      <div ref={stepsEndRef} />
     </div>
   );
 }
