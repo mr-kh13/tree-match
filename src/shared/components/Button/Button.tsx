@@ -17,6 +17,7 @@ export function Button({
       className={clsx(className, styles.button, {
         // Color
         [styles.secondary]: color === "secondary",
+        [styles.primary]: color === "primary",
         // Size
         [styles.md]: size === "md",
         // Variant

@@ -4,6 +4,9 @@
 
 .button {
   outline: none;
+  cursor: pointer;
+  transition: all 250ms ease;
+  text-transform: capitalize;
 
   &.default {
     border-width: 1px;
@@ -20,6 +23,23 @@
     &:not(:disabled) {
       &:hover {
         color: colors.color(brand, 600);
+        border-color: colors.color(brand, 600);
+      }
+
+      &:focus {
+        border-color: colors.color(brand, 600);
+      }
+    }
+  }
+
+  &.primary {
+    background-color: colors.color(brand, 500);
+    border-color: colors.color(brand, 500);
+    color: #fff;
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: colors.color(brand, 600);
         border-color: colors.color(brand, 600);
       }
 
