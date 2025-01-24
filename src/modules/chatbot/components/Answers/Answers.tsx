@@ -1,3 +1,4 @@
+"use client";
 import styles from "./Answers.module.scss";
 import { AnswerItem } from "../AnswerItem";
 
