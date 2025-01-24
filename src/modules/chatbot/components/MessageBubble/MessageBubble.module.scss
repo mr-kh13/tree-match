@@ -6,6 +6,7 @@
 .container {
   width: 100%;
   max-width: fit-content;
+  min-width: spacing.pxToRem(72);
   background-color: #fff;
   color: colors.color(gray, 900);
   padding: spacing.pxToRem(16);
