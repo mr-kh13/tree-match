@@ -1,0 +1,26 @@
+@use "@/shared/styles/colors.scss";
+@use "@/shared/styles/spacing.scss";
+@use "@/shared/styles/typography.scss";
+
+$container-x-padding: spacing.pxToRem(16);
+$container-y-padding: spacing.pxToRem(24);
+
+.container {
+  width: 100%;
+  background-color: #fff;
+  padding: $container-y-padding 0 $container-y-padding $container-x-padding;
+
+  .title {
+    color: colors.color(gray, 900);
+    @include typography.text(semibold, md);
+    margin-bottom: spacing.pxToRem(8);
+  }
+
+  .answersWrapper {
+    width: 100%;
+    display: flex;
+    gap: spacing.pxToRem(16);
+    overflow-x: auto;
+    padding-right: $container-x-padding;
+  }
+}
