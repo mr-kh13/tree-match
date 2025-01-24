@@ -1,0 +1,8 @@
+@use "@/shared/styles/spacing.scss";
+
+.questionsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: spacing.pxToRem(24);
+}

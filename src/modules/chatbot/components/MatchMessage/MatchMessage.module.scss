@@ -1,0 +1,23 @@
+@use "@/shared/styles/spacing.scss";
+@use "@/shared/styles/typography.scss";
+@use "@/shared/styles/colors.scss";
+
+.title {
+  @include typography.text(bold, md);
+  margin-bottom: spacing.pxToRem(16);
+  color: colors.color(gray, 700);
+}
+
+.name {
+  display: block;
+  margin-bottom: spacing.pxToRem(4);
+  @include typography.text(medium, md);
+  color: colors.color(gray, 900);
+}
+
+.description {
+  display: block;
+  margin-bottom: spacing.pxToRem(8);
+  @include typography.text(regular, md);
+  color: colors.color(gray, 900);
+}

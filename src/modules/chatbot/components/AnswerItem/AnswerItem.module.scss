@@ -1,4 +1,7 @@
+@use "@/shared/styles/spacing.scss";
+
 .answerItem {
   width: 100%;
   max-width: fit-content;
+  min-width: spacing.pxToRem(76);
 }
