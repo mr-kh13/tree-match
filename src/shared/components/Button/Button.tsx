@@ -20,6 +20,7 @@ export function Button({
         [styles.primary]: color === "primary",
         // Size
         [styles.md]: size === "md",
+        [styles.lg]: size === "lg",
         // Variant
         [styles.default]: variant === "default",
         // Others

@@ -55,6 +55,11 @@
     border-radius: spacing.pxToRem(8);
     @include typography.text(semibold, md);
   }
+  &.lg {
+    padding: spacing.pxToRem(12);
+    border-radius: spacing.pxToRem(8);
+    @include typography.text(semibold, lg);
+  }
 
   &:disabled {
     cursor: not-allowed;
