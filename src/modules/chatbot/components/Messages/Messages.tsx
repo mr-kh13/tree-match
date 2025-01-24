@@ -5,7 +5,11 @@ import { addStep, selectMatch, selectSteps } from "../../chatbotSlice";
 import { FirstStepResult } from "@/data/apis/beginTreeMatching";
 import { MessageBubble } from "../MessageBubble";
 import styles from "./Messages.module.scss";
-import { MatchMessage } from "../MatchMessage";
+import dynamic from "next/dynamic";
+
+const MatchMessage = dynamic(() =>
+  import("../MatchMessage").then((res) => res.MatchMessage)
+);
 
 interface Props {
   initialStep: FirstStepResult;
