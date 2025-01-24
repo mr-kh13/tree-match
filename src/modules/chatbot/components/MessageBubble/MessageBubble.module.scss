@@ -1,0 +1,16 @@
+@use "@/shared/styles/spacing.scss";
+@use "@/shared/styles/typography.scss";
+@use "@/shared/styles/breakpoints.scss";
+
+.container {
+  width: 100%;
+  background-color: #fff;
+  padding: spacing.pxToRem(16);
+  border-radius: spacing.pxToRem(16) spacing.pxToRem(16) spacing.pxToRem(16) 0;
+  @include typography.text(regular, md);
+
+  @include breakpoints.media-query-up(sm) {
+    max-width: fit-content;
+    @include typography.text(regular, lg);
+  }
+}
