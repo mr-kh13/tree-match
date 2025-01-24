@@ -1,7 +1,6 @@
 "use client";
-import React, { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addStep, selectMatch, selectSteps } from "../../chatbotSlice";
+import { useSelector } from "react-redux";
+import { selectMatch, selectSteps } from "../../chatbotSlice";
 import { FirstStepResult } from "@/data/apis/beginTreeMatching";
 import { MessageBubble } from "../MessageBubble";
 import styles from "./Messages.module.scss";
@@ -20,10 +19,9 @@ interface Props {
 export function Messages({ initialStep }: Props) {
   const steps = useSelector(selectSteps);
   const match = useSelector(selectMatch);
-  const stepsEndRef = useRef<HTMLDivElement>(null);
 
   useChatbotInitializerListener(initialStep);
-  useScrollToLastMessageListener();
+  const { stepsEndRef } = useScrollToLastMessageListener();
 
   return (
     <div className={styles.stepsWrapper}>

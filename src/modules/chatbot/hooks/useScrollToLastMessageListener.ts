@@ -12,4 +12,6 @@ export function useScrollToLastMessageListener() {
       stepsEndRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [steps, match]);
+
+  return { stepsEndRef };
 }
